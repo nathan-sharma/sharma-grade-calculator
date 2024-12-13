@@ -86,7 +86,7 @@ while True:
         elif academic_string!= "none" and kap_ap_string == "none": 
             gpa = (calc_aca(academic_string))/(len(academic_string.split(",")))
 
-        print("Your GPA is: " + str(round(gpa, 2)))
+        print("Your GPA is: " + str(round(gpa, 3)))
         print("KAP/AP points: " + str(kap_points))
         print("ACA points: " + str(aca_points))
 
