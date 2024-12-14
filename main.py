@@ -1,5 +1,5 @@
-# omg this replaces gradeway premium
 #copy and paste this code in a python programming platform or open a github codespace to try it out!
+
 import sys
 print("Welcome to the KISD Sharma Grade Calculator!")
 def color_code_average(average):
