@@ -9,6 +9,14 @@ def color_code_average(average):
     else:
         color_code = "\033[31m"  # Red
     return color_code + str(average) + "\033[0m"
+def color_code_(gpa): 
+    if gpa>=4:
+        color_code = "\033[32m"  # Green
+    elif gpa>=3: 
+        color_code = "\033[33m"  # Yellow
+    else: 
+        color_code = "\033[31m"  # Red
+    return color_code + str(gpa) + "\033[0m"
 while True:
     chooser = input('Enter "semester" for semester exam calculator, "grades" for grade average calculator, or "gpa" for GPA calculator : ')
     if chooser == "semester":
@@ -86,7 +94,7 @@ while True:
         elif academic_string!= "none" and kap_ap_string == "none": 
             gpa = (calc_aca(academic_string))/(len(academic_string.split(",")))
 
-        print("Your GPA is: " + str(round(gpa, 3)))
+        print("Your GPA is: " + color_code_gpa(str(round(gpa, 3))))
         print("KAP/AP points: " + str(kap_points))
         print("ACA points: " + str(aca_points))
 
