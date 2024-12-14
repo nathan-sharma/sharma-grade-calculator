@@ -97,6 +97,7 @@ while True:
         print("Your GPA is: ", color_code_gpa(round(gpa, 3)))
         print("KAP/AP points: " + str(kap_points))
         print("ACA points: " + str(aca_points))
+        sys.exit()
 
 def avg(a, b, c):
     return (a + b + c) / 3
