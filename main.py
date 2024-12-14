@@ -9,7 +9,7 @@ def color_code_average(average):
     else:
         color_code = "\033[31m"  # Red
     return color_code + str(average) + "\033[0m"
-def color_code_(gpa): 
+def color_code_gpa(gpa): 
     if gpa>=4:
         color_code = "\033[32m"  # Green
     elif gpa>=3: 
@@ -94,7 +94,7 @@ while True:
         elif academic_string!= "none" and kap_ap_string == "none": 
             gpa = (calc_aca(academic_string))/(len(academic_string.split(",")))
 
-        print("Your GPA is: " + color_code_gpa(str(round(gpa, 3))))
+        print("Your GPA is: ", color_code_gpa(round(gpa, 3)))
         print("KAP/AP points: " + str(kap_points))
         print("ACA points: " + str(aca_points))
 
