@@ -1,5 +1,3 @@
-#copy and paste this code in a python programming platform to try it out!
-
 import sys
 print("Welcome to the KISD Sharma Grade Calculator!")
 def color_code_average(average):
