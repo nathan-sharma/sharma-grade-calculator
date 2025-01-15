@@ -66,8 +66,8 @@ while True:
         aca_letters = {"A": 4, "B": 3, "C": 2, "D": 1}
         kap_ap_letters = {"A": 5, "B": 4, "C": 3, "D": 2}
 
-        academic_string = input("Enter letter grades of all ACADEMIC (4.0) courses you're" + ' taking separated by commas.' + " If you're taking none," + ' type "none". Also, note that A = 90-100, B = 80-89, C = 75-79, and D = 70-74. : ')
-        kap_ap_string = input("Enter letter grades of all KAP and AP courses (5.0) you're" + ' taking separated by commas.' + " If you're taking none," + ' type "none" : ')
+        academic_string = input("Enter semester letter grades of all ACADEMIC (4.0) courses you took or are taking separated by commas. If you're taking none," + ' type "none". If you took a course over more than one semester, enter each individual semester grade. Also, note that A = 90-100, B = 80-89, C = 75-79, and D = 70-74. : ')
+        kap_ap_string = input("Enter semester letter grades of all KAP and AP courses (5.0) you took or are taking separated by commas.' + If you're taking none," + ' type "none". If you took a course over more than one semester, enter each individual semester grade. Also, note that A = 90-100, B = 80-89, C = 75-79, and D = 70-74. :  ')
         def calc_aca(academic_string):
             points = 0
             if academic_string != "none":
