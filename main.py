@@ -25,9 +25,9 @@ while True:
     if chooser == "semester":
         break
     elif chooser == "grades":
-        majors_str = input("Enter category average or individual major grade scores separated by commas: ")
-        minors_str = input("Enter category average or individual minor grade scores separated by commas: ")
-        others_str = input("Enter category average or individual other grade scores separated by commas: ")
+        majors_str = input("MAJOR GRADES - Enter category average or individual major grade scores separated by commas: ")
+        minors_str = input("MINOR GRADES - Enter category average or individual minor grade scores separated by commas: ")
+        others_str = input("OTHER GRADES - Enter category average or individual other grade scores separated by commas: ")
 
         def average_majors():
             majors_list = majors_str.split(",")
