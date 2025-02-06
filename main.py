@@ -110,7 +110,7 @@ while True:
             (4.8246, 4.8308, "5th"),
             (4.8308, 4.8448, "4th"),
             (4.8448, 4.8485, "3rd"),
-            (4.8485, 4.8923, "2ND (Saledictorian)"),
+            (4.8485, 4.8923, "2ND (Salutatorian)"),
             (4.8923, float('inf'), "1ST (Valedictorian)"),  
         ]
 
@@ -122,7 +122,7 @@ while True:
 
         rank = get_rank(gpa) 
         if rank != "GPA not in defined range":
-            print(f"\033[35mTOP 10: This would rank {rank} in CRHS Class of 2024!\033[0m")
+            print(f"\033[35mTOP 10: This would rank {rank} in CRHS Class of 2024\033[0m")
         else:
             print(rank)
 
