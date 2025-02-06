@@ -149,3 +149,18 @@ if get_an_a > 100:
     print("\033[31mYour average is guaranteed to be lower than an A.\033[0m")
 elif get_an_a <= 0:
     print("\033[32mYou are guaranteed to get an A for this semester.\033[0m")
+else:
+    print("\033[33mTo get an A for the semester, you need a(n) " + str(round(get_an_a, 2)) + " or higher on the final.\033[0m")
+if get_a_b > 100:
+    print("\033[31mYour average is guaranteed to be lower than a B.\033[0m")
+elif get_a_b <= 0:
+    print("\033[32mYour average is guaranteed to be a B or higher.\033[0m")
+else:
+    print("\033[33mTo get a B for the semester, you need a(n) " + str(round(get_a_b, 2)) + " or higher on the final.\033[0m")
+if to_pass > 100:
+    print("\033[31mYou are guaranteed to fail for this semester. In the best case scenario, your average would be a(n) " + str(round(skibidi_toilet, 2)) + ".\033[0m")
+elif to_pass <= 0:
+    print("\033[32mYour average is guaranteed to be a C or higher.\033[0m")
+else:
+    print("\033[33mTo pass, you need a(n) " + str(round(to_pass, 2)) + " or higher on the final.\033[0m")
+    print("\033[32mYou are guaranteed to get an A for this semester.\033[0m")
