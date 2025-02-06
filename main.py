@@ -21,9 +21,9 @@ while True:
     if chooser == "semester":
         break
     elif chooser == "grades":
-        majors_str = input("Enter major grade scores separated by commas or category average: ")
-        minors_str = input("Enter minor grade scores separated by commas or category average: ")
-        others_str = input("Enter other grade scores separated by commas or category average: ")
+        majors_str = input("Enter category average or individual major grade scores separated by commas: ")
+        minors_str = input("Enter category average or individual major grade scores separated by commas: ")
+        others_str = input("Enter category average or individual major grade scores separated by commas: ")
 
         def average_majors():
             majors_list = majors_str.split(",")
@@ -32,7 +32,6 @@ while True:
             count_majors = len(majors)
             average_majors = total_majors / count_majors
             return average_majors
-
         def average_minors():
             minors_list = minors_str.split(",")
             minors = [float(num) for num in minors_list]
@@ -64,40 +63,43 @@ while True:
         aca_letters = {"A": 4, "B": 3, "C": 2, "D": 1}
         kap_ap_letters = {"A": 5, "B": 4, "C": 3, "D": 2}
 
-        academic_string = input("Enter semester letter grades of all ACADEMIC (4.0) courses you took or are taking separated by commas. If you're taking none," + ' type "none". If you took a course over more than one semester, enter each individual semester grade. Also, note that A = 90-100, B = 80-89, C = 75-79, and D = 70-74. : ')
-        kap_ap_string = input("Enter semester letter grades of all KAP and AP courses (5.0) you took or are taking separated by commas.' + If you're taking none," + ' type "none". If you took a course over more than one semester, enter each individual semester grade. Also, note that A = 90-100, B = 80-89, C = 75-79, and D = 70-74. :  ')
-        def calc_aca(academic_string):
+        def parse_grades(grades_str, letter_values):
             points = 0
-            if academic_string != "none":
-                grades = academic_string.split(",")
-                for grade in grades:
-                    if grade in aca_letters:
-                        points += aca_letters[grade]
-            return points
+            count = 0
+            if grades_str.lower() != "none":
+                grade_entries = grades_str.split(",")
+                for entry in grade_entries:
+                    try:
+                        letter, num = entry.split("(")[0].strip(), int(entry.split("(")[1].split(")")[0])
+                        for count in range(num):  # Repeat the grade based on the number in parentheses
+                          if letter in letter_values:
+                            points += letter_values[letter]
+                            count+=1
+                    except (ValueError, IndexError):
+                        print("Invalid grade format: ", entry + "Make sure you type in the format Letter(Number) and separate entries with commas.") # Handle errors
+                        return 0, 0
+            return points, count
 
-        aca_points = calc_aca(academic_string)
 
-        def calc_kap_ap(kap_ap_string):
-            points = 0
-            if kap_ap_string != "none":
-                grades = kap_ap_string.split(",")
-                for grade in grades:
-                    if grade in kap_ap_letters:
-                        points += kap_ap_letters[grade]
-            return points
-        kap_points = calc_kap_ap(kap_ap_string)
-        if academic_string!= "none" and kap_ap_string!= "none":
-            gpa = (calc_kap_ap(kap_ap_string) + calc_aca(academic_string))/(len(academic_string.split(","))  + len(kap_ap_string.split(",")))
-        elif academic_string == "none" and kap_ap_string!= "none": 
-            gpa = (calc_kap_ap(kap_ap_string))/(len(kap_ap_string.split()))
-        elif academic_string!= "none" and kap_ap_string == "none": 
-            gpa = (calc_aca(academic_string))/(len(academic_string.split(",")))
+        academic_string = input("Enter semester letter grades of all ACADEMIC (4.0) courses you took or are taking. Use the format Letter(Number) and separate with commas. If you're taking none, type 'none'.: ")
+        kap_ap_string = input("Enter semester letter grades of all KAP and AP courses (5.0) you took or are taking. Use the format Letter(Number) and separate with commas. If you're taking none, type 'none'.: ")
 
-        print("Your GPA is: ", color_code_gpa(round(gpa, 3)))
+        aca_points, aca_count = parse_grades(academic_string, aca_letters)
+        kap_points, kap_count = parse_grades(kap_ap_string, kap_ap_letters)
+
+
+        total_points = aca_points + kap_points
+        total_courses = aca_count + kap_count
+
+        if total_courses > 0:
+            gpa = total_points / total_courses
+        else:
+            gpa = 0  # Or handle the case where no grades are entered
+
+        print("Your GPA is: ", color_code_gpa(round(gpa, 4)))
         print("KAP/AP points: " + str(kap_points))
         print("ACA points: " + str(aca_points))
         sys.exit()
-
 def avg(a, b, c):
     return (a + b + c) / 3
 #lol
