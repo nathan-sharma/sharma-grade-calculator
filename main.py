@@ -82,7 +82,7 @@ while True:
 
 
         academic_string = input("Enter semester letter grades of all ACADEMIC (4.0) courses you took or are taking. Use the format Letter(Number) and separate with commas. If you're taking none, type 'none'.: ")
-        kap_ap_string = input("Enter semester letter grades of all KAP and AP courses (5.0) you took or are taking. Use the format Letter(Number) and separate with commas. If you're taking none, type 'none'.: ")
+        kap_ap_string = input("Enter semester letter grades of all KAP and AP (5.0) courses you took or are taking. Use the format Letter(Number) and separate with commas. If you're taking none, type 'none'.: ")
 
         aca_points, aca_count = parse_grades(academic_string, aca_letters)
         kap_points, kap_count = parse_grades(kap_ap_string, kap_ap_letters)
