@@ -123,8 +123,6 @@ while True:
         rank = get_rank(gpa) 
         if rank != "GPA not in defined range":
             print(f"\033[35mTOP 10: This would rank {rank} in CRHS Class of 2024\033[0m")
-        else:
-            print(rank)
 
         print("KAP/AP points: " + str(kap_points))
         print("ACA points: " + str(aca_points))
