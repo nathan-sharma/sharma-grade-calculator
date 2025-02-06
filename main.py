@@ -163,4 +163,3 @@ elif to_pass <= 0:
     print("\033[32mYour average is guaranteed to be a C or higher.\033[0m")
 else:
     print("\033[33mTo pass, you need a(n) " + str(round(to_pass, 2)) + " or higher on the final.\033[0m")
-    print("\033[32mYou are guaranteed to get an A for this semester.\033[0m")
